@@ -1,0 +1,7 @@
+<%= form_for(@dcrelation) do |f| %>
+  <div class="field">
+    <%= f.label :doctor_id %><br />
+    <%= f.text_field :doctor_id %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>

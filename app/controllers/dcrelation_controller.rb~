@@ -1,0 +1,14 @@
+class DcrelationController < ApplicationController
+  def create
+    @dcrelation = Dcrelation.new(params[:clinic_id],params[:doctor_id])
+    if @dcrelation.save
+      flash[:success] = "doctor added!"
+      redirect_to root_url
+    else
+      render 'clinic/show'
+    end
+  end
+
+  def destroy
+  end
+end

@@ -1,0 +1,28 @@
+<h1>Listing doctors</h1>
+
+<table border="1">
+  <tr>
+    <th>Doctor Name</th>
+    <th>Doctor Id</th>
+    <th></th>
+    <th></th>
+  </tr>
+<% if @doctors.present? %>
+<% @doctors.each do |doctor| %>
+  <tr>
+    <td><%= doctor.name %></td>
+    <td><%= doctor.doctor_id %></td>
+    <td><%= link_to 'More', doctor %></td>
+    <td><%= link_to 'Update', edit_doctor_path(doctor) %></td>
+    <td><%= link_to 'Destroy', doctor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'back to main', root_url %>
+<br />
+
+<%= link_to 'New Doctor', new_doctor_path %>

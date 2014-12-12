@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p><h1>
+  <b>Doctor Name:</b>
+  <%= @doctor.name %></h1>
+</p>
+
+<p>
+  <h1><b>Doctor Id:</b>
+  <%= @doctor.doctor_id %></h1>
+</p>
+
+<p><h3><b>Associated Clinics:</b><br/>
+
+
+	<% if @doctor.dcrelation.present? %>
+<table border="1">
+<tr>
+<td>Clinic name</td><td>Clinic Id</td>
+</tr>
+<td><%= Clinic.find(@doctor.dcrelation.clinic_id).name %></td><td><%= @doctor.dcrelation.clinic_id %></td>
+</h3>
+</table>
+</p>
+	<% end %>
+
+
+<%= link_to 'Edit', edit_doctor_path(@doctor) %> |
+<%= link_to 'Back', doctors_path %>

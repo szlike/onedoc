@@ -1,0 +1,26 @@
+<h1>Listing clinics</h1>
+
+<table border="1">
+  <tr>
+    <th>Clinic Name</th>
+    <th>Clinic Id</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% if @clinics.present? %>
+<% @clinics.each do |clinic| %>
+  <tr>
+    <td><%= clinic.name %></td>
+    <td><%= clinic.clinic_id %></td>
+    <td><%= link_to 'More', clinic %></td>
+    <td><%= link_to 'Update', edit_clinic_path(clinic) %></td>
+    <td><%= link_to 'Destroy', clinic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+<% end %>
+</table>
+<br />
+<%= link_to 'back to main', root_url %>
+<br />
+<%= link_to 'New Clinic', new_clinic_path %>

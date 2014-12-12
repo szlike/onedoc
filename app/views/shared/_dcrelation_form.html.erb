@@ -1,0 +1,8 @@
+<%= form_tag(:controller => "dcrelations", :method => "post") do %>
+  <div class="field">
+    <%= hidden_field_tag(:clinic_id, @clinic.clinic_id) %>
+    <%= label_tag(:doctor_id, "doctor_id: ") %><br />
+    <%= number_field_tag(:doctor_id) %>
+  </div>
+  <%= submit_tag("Add Doctor") %>
+<% end %>

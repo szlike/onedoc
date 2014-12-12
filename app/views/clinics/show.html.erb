@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p><h1>
+  <b>Clinic Name:</b>
+  <%= @clinic.name %>
+   </h1>
+</p>
+
+<p>
+   <h1>
+  <b>Clinic Id:</b>
+  <%= @clinic.clinic_id %>
+   </h1>
+</p>
+<p><b>Associated Doctors: (<%= @clinic.dcrelations.count %>)</b><p>
+    <% if @clinic.dcrelations.any? %>
+       <table border="1">
+		<tr><td>Doctor Name</td><td>Doctor Id</td></tr>
+		<%= @clinic.dcrelations.each do |d| %>	
+			<tr><td><%= Doctor.find(d.doctor_id).name %></td><td><%= d.doctor_id %></td>
+
+		    <td><%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+			</tr>
+			
+		<% end %>
+       </table>
+    <% end %>
+    <p>
+      <b>Add more doctors</b>
+	<%= render 'shared/dcrelation_form' %>
+  </p>
+<%= link_to 'Edit', edit_clinic_path(@clinic) %>
+<%= link_to 'Back', clinics_path %>
